@@ -1,0 +1,21 @@
+.error-text {
+  color: $main-color;
+  display: flex;
+  flex-direction: column;
+  font-size: 3rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  height: 607px;
+}
+.error-text a {
+  font-size: 1.8rem;
+  color: $main-color;
+  text-decoration: none;
+  text-decoration: underline;
+}
+.error-text h2 {
+  font-size: 200px;
+  margin-top: 0;
+  margin-bottom: 0;
+}

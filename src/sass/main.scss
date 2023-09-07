@@ -1,2 +1,6 @@
-@import "./components/navbar.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+@import "./utils/variables.scss";
 @import "./pages/home.scss";
+@import "./principal.scss";
+@import "./pages/error.scss";

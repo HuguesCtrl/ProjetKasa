@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import LogoKasa from "../assets/img/LogoKasa.png";
+import LogoKasaRouge from "../assets/img/LogoKasaRouge.png";
 function Navbar() {
   return (
     <nav className="main-menu">
-      <img src={LogoKasa} alt="Logo Kasa" />
+      <img src={LogoKasaRouge} alt="Logo Kasa" />
       <ul>
         <li>
           <NavLink

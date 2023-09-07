@@ -8,14 +8,14 @@ import "./sass/main.scss";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Navbar />
         <Routes>
-          <Route path="/projet_kasa/" element={<Home />} />
-          <Route path="/projet_kasa/about" element={<About />} />
-          <Route path="/projet_kasa/error" element={<Error />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Error />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
