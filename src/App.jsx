@@ -9,9 +9,9 @@ function App() {
     <>
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/error" element={<Error />} />
+          <Route path="/projet_kasa/" element={<Home />} />
+          <Route path="/projet_kasa/about" element={<About />} />
+          <Route path="/projet_kasa/error" element={<Error />} />
         </Routes>
       </HashRouter>
     </>
