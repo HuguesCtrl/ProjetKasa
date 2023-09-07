@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, BrowserRouter } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Error from "./pages/Error";
@@ -11,9 +11,9 @@ function App() {
       <HashRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<Error />} />
+          <Route path="/ProjetKasa/" element={<Home />} />
+          <Route path="/ProjetKasa/about" element={<About />} />
+          <Route path="/ProjetKasa/*" element={<Error />} />
         </Routes>
       </HashRouter>
     </>
