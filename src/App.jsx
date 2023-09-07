@@ -11,9 +11,9 @@ function App() {
       <HashRouter>
         <Navbar />
         <Routes>
-          <Route path="/ProjetKasa/" element={<Home />} />
-          <Route path="/ProjetKasa/about" element={<About />} />
-          <Route path="/ProjetKasa/*" element={<Error />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </HashRouter>
     </>
