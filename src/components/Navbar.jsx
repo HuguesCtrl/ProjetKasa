@@ -1,13 +1,25 @@
 import { NavLink } from "react-router-dom";
+import LogoKasa from "../assets/img/LogoKasa.png";
 function Navbar() {
   return (
-    <nav>
+    <nav className="main-menu">
+      <img src={LogoKasa} alt="Logo Kasa" />
       <ul>
         <li>
-          <NavLink>Accueil</NavLink>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "underline" : "")}
+          >
+            Accueil
+          </NavLink>
         </li>
         <li>
-          <NavLink>A propos</NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "underline" : "")}
+          >
+            A propos
+          </NavLink>
         </li>
       </ul>
     </nav>

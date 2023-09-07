@@ -1,5 +1,2 @@
-body {
-  background-color: blue;
-  font-family: "Segoe UI";
-  color: white;
-}
+@import "./components/navbar.scss";
+@import "./pages/home.scss";
