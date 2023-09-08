@@ -1,24 +1,24 @@
 .hero-image {
   height: 223px;
-  width: 1240px;
+  max-width: 1240px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $main-color;
   border-radius: 25px;
   margin: 0 auto;
+  h1 {
+    color: white;
+    font-size: 4.8rem;
+  }
 }
 
-.hero-image h1 {
-  color: white;
-  font-size: 4.8rem;
-}
 .appartment-section {
-  width: 1240px;
+  max-width: 1240px;
   height: 760px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
   align-items: center;
   background-color: #f6f6f6;
   margin-top: 30px;
@@ -26,17 +26,23 @@
   margin: 40px auto;
   gap: 20px;
   padding: 15px;
-}
-.appartment-single {
-  background-color: $main-color;
-  height: 340px;
-  width: 340px;
-  border-radius: 25px;
-  position: relative;
-}
-.appartment-single h2 {
-  font-size: 1.8rem;
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
+  .appartment-single {
+    background-color: $main-color;
+    height: 340px;
+    width: 340px;
+    border-radius: 25px;
+    position: relative;
+    h2 {
+      font-size: 1.8rem;
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+    }
+  }
+  @media screen and (max-width: 1300px) {
+    .appartment-single {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 100%;
+    }
+  }
 }
