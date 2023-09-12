@@ -1,48 +1,118 @@
 .hero-image {
   height: 223px;
   max-width: 1240px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $main-color;
   border-radius: 25px;
   margin: 0 auto;
+  position: relative;
   h1 {
     color: white;
     font-size: 4.8rem;
+    z-index: 2;
+    font-weight: 200;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 25px;
+    z-index: 0;
+    -webkit-filter: brightness(0.7);
+    filter: brightness(0.7);
   }
 }
 
 .appartment-section {
   max-width: 1240px;
-  height: 760px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   align-items: center;
+  place-content: center;
   background-color: #f6f6f6;
   margin-top: 30px;
   border-radius: 25px;
   margin: 40px auto;
-  gap: 20px;
+  gap: 50px;
   padding: 15px;
-  .appartment-single {
+  .appartment-sheets {
     background-color: $main-color;
     height: 340px;
-    width: 340px;
     border-radius: 25px;
     position: relative;
+    cursor: pointer;
+    transition: 0.4s ease-out transform;
     h2 {
       font-size: 1.8rem;
       position: absolute;
       bottom: 10px;
       left: 20px;
+      font-weight: 200;
+      width: 70%;
+      color: #f6f6f6;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 25px;
+      -webkit-filter: brightness(0.6);
+      filter: brightness(0.6);
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+    &:hover {
+      transform: scale(1.1);
     }
   }
-  @media screen and (max-width: 1300px) {
-    .appartment-single {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 100%;
+}
+@media #{$laptop} {
+  .hero-image {
+    width: 95%;
+    height: 140px;
+    margin: inherit 30px;
+    justify-content: flex-start;
+    padding: 25px;
+    box-sizing: border-box;
+    h1 {
+      font-size: 2.4rem;
+      width: 230px;
+    }
+  }
+  .appartment-section {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    margin: 20px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    .appartment-section > * {
+      width: 100% !important;
+    }
+  }
+}
+@media #{$mobile} {
+  .hero-image {
+    width: 90%;
+  }
+  .appartment-section {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    .appartment-sheets {
+      width: 100% !important;
     }
   }
 }

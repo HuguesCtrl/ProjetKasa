@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 30px auto;
-  width: 1240px;
+  max-width: 1240px;
   ul {
     display: flex;
     justify-content: space-around;
@@ -39,7 +39,7 @@ body {
 .main-footer {
   background-color: black;
   height: 209px;
-  width: 1440px;
+  max-width: 100%;
   color: white;
   display: flex;
   justify-content: center;
@@ -56,6 +56,47 @@ body {
     }
     p {
       font-size: 24px;
+    }
+  }
+}
+
+@media #{$laptop} {
+  .main-menu {
+    max-width: 100% !important;
+    padding: 25px;
+    margin-top: 10px;
+    ul {
+      max-width: 250px;
+    }
+  }
+  .main-footer {
+    max-width: 100% !important;
+    padding: 10px;
+    p {
+      font-size: 21px !important;
+      width: 210px;
+      text-align: center;
+    }
+  }
+}
+@media #{$mobile} {
+  .main-menu {
+    ul {
+      font-size: 0.5rem !important;
+    }
+    a {
+      font-size: 21px;
+    }
+  }
+}
+@media #{$short-mobile} {
+  .main-menu {
+    ul {
+      font-size: 0.5rem !important;
+      align-items: center;
+    }
+    a {
+      font-size: 15px;
     }
   }
 }

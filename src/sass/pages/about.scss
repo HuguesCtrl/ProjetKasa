@@ -5,7 +5,6 @@
   align-items: center;
   gap: 20px;
   margin: 50px auto;
-  height: 314px;
 }
 
 .keywords-description {
@@ -28,4 +27,27 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+@media #{$laptop} {
+  .hero-image {
+    height: 200px;
+  }
+  .keyword-container {
+    max-width: 100% important;
+    margin: 10px 0;
+    padding: 0 20px;
+    height: 350px;
+  }
+  .keywords-description {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media #{$mobile} {
+  .hero-image {
+    height: 200px;
+  }
 }

@@ -5,7 +5,7 @@
 //color
 $main-color: #fd6060;
 //media queries
-$laptop: "only screen and (max-width: 1300px)";
-$tablette: "only screen and (max-width: 900px)";
-$mobile: "only screen and (max-width: 700px)";
-$short-mobile: "only screen and (max-width: 400px)";
+$laptop: "screen and (max-width: 1300px)";
+$tablette: "screen and (max-width: 900px)";
+$mobile: "screen and (max-width: 750px)";
+$short-mobile: "screen and (max-width: 450px)";

@@ -1,11 +1,12 @@
 import Footer from "../components/Footer";
 import ArrowDown from "../assets/img/ArrowDown.png";
+import Montagnes from "../assets/img/ImageAbout.png";
 
 function About() {
   return (
-    <div>
+    <div className="about-container">
       <header className="hero-image">
-        <h1>Chez vous partout et ailleurs</h1>
+        <img src={Montagnes} alt="" />
       </header>
       <div className="keyword-container">
         <div className="keywords-description">

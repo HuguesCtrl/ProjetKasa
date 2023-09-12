@@ -3,7 +3,9 @@ import LogoKasaRouge from "../assets/img/LogoKasaRouge.png";
 function Navbar() {
   return (
     <nav className="main-menu">
-      <img src={LogoKasaRouge} alt="Logo Kasa" />
+      <NavLink to="/">
+        <img src={LogoKasaRouge} alt="Logo Kasa" />
+      </NavLink>
       <ul>
         <li>
           <NavLink
