@@ -25,44 +25,72 @@ function AppartementsSingle() {
   const [openDescription, setOpenDescription] = useState(false);
   const [openEquipement, setOpenEquipement] = useState(false);
 
-  const description = useRef();
-  const equipement = useRef();
+  const descriptionArrow = useRef();
+  const equipmentsArrow = useRef();
+  const descriptionText = useRef();
+  const equipmentsText = useRef();
 
   function handleDescriptionOpen() {
     setOpenDescription(!openDescription);
     if (!openDescription) {
-      description.current.classList.add("open");
-      description.current.classList.remove("close");
+      descriptionArrow.current.classList.add("open");
+      descriptionText.current.classList.add("active");
     } else {
-      description.current.classList.remove("open");
-      description.current.classList.add("close");
+      descriptionArrow.current.classList.remove("open");
+      descriptionText.current.classList.remove("active");
     }
   }
   function handleEquipementOpen() {
     setOpenEquipement(!openEquipement);
     if (!openEquipement) {
-      equipement.current.classList.add("open");
-      equipement.current.classList.remove("close");
+      equipmentsArrow.current.classList.add("open");
+      equipmentsText.current.classList.add("active");
     } else {
-      equipement.current.classList.remove("open");
-      equipement.current.classList.add("close");
+      equipmentsArrow.current.classList.remove("open");
+      equipmentsText.current.classList.remove("active");
     }
   }
+  const [indexImage, setIndexImage] = useState(0);
+  let imagesSlider = filterData[0]?.pictures;
+  console.log(imagesSlider, indexImage);
 
   return (
-    <div>
+    <div className="single-container">
       <div className="apartment-single-container">
         <div className="appartment-slider">
-          <p>1/4</p>
+          {
+            <img
+              src={filterData[0]?.pictures[indexImage]}
+              alt=""
+              className="img-slider"
+            />
+          }
+          <p>
+            {`${indexImage + 1}` + "/" + `${filterData[0]?.pictures.length}`}
+          </p>
           <img
             src={ArrowBackward}
             alt="Arrière"
             className="arrow-slider-backward"
+            onClick={() => {
+              if (indexImage > 0) {
+                setIndexImage(indexImage - 1);
+              } else {
+                setIndexImage(filterData[0]?.pictures.length - 1);
+              }
+            }}
           />
           <img
             src={ArrowForward}
             alt="Avant"
             className="arrow-slider-forward"
+            onClick={() => {
+              if (indexImage < filterData[0]?.pictures.length - 1) {
+                setIndexImage(indexImage + 1);
+              } else {
+                setIndexImage(0);
+              }
+            }}
           />
         </div>
         <div className="apartment-text">
@@ -113,35 +141,43 @@ function AppartementsSingle() {
           </div>
         </div>
         <div className="keywords-collapse">
-          <div>
-            <p>Description</p>
-            <img
-              src={ArrowDown}
-              alt="Fleche vers le bas"
-              className="arrow-collapse-description close"
-              ref={description}
-              onClick={() => handleDescriptionOpen()}
-            />
+          {/* Partie description */}
+          <div className="description">
+            <div className="description-label">
+              <p>Description</p>
+              <img
+                src={ArrowDown}
+                alt="Arrow"
+                className="arrow-collapse-description"
+                ref={descriptionArrow}
+                onClick={() => handleDescriptionOpen()}
+              />
+            </div>
+            <div className="description-text" ref={descriptionText}>
+              {<p>{filterData[0]?.description}</p>}
+            </div>
           </div>
-          <div className="description-collapse">
-            {filterData[0]?.description}
-          </div>
-          <div>
-            <p>Equipements</p>
-            <img
-              src={ArrowDown}
-              alt="Fleche vers le bas"
-              className="arrow-collapse-equipement close"
-              ref={equipement}
-              onClick={() => handleEquipementOpen()}
-            />
-          </div>
-          <div className="equipments-collapse">
-            {filterData[0]?.equipments?.map((item, index) => (
-              <p key={index} className="equipments-single">
-                {item}
-              </p>
-            ))}
+          {/* Partie equipments */}
+          <div className="equipments">
+            <div className="equipments-label">
+              <p>Equipments</p>
+              <img
+                src={ArrowDown}
+                alt="Arrow"
+                className="arrow-collapse-equipement"
+                ref={equipmentsArrow}
+                onClick={() => handleEquipementOpen()}
+              />
+            </div>
+            <div className="equipments-text" ref={equipmentsText}>
+              {
+                <ul>
+                  {filterData[0]?.equipments.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              }
+            </div>
           </div>
         </div>
       </div>
