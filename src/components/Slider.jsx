@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function Slider({
   filterData,
   indexImage,
@@ -5,7 +7,6 @@ function Slider({
   ArrowForward,
   setIndexImage,
 }) {
-  console.log(filterData);
   return (
     <div className="appartment-slider">
       {
@@ -15,31 +16,37 @@ function Slider({
           className="img-slider"
         />
       }
-      <p>{`${indexImage + 1}` + "/" + `${filterData[0]?.pictures.length}`}</p>
-      <img
-        src={ArrowBackward}
-        alt="Arrière"
-        className="arrow-slider-backward"
-        onClick={() => {
-          if (indexImage > 0) {
-            setIndexImage(indexImage - 1);
-          } else {
-            setIndexImage(filterData[0]?.pictures.length - 1);
-          }
-        }}
-      />
-      <img
-        src={ArrowForward}
-        alt="Avant"
-        className="arrow-slider-forward"
-        onClick={() => {
-          if (indexImage < filterData[0]?.pictures.length - 1) {
-            setIndexImage(indexImage + 1);
-          } else {
-            setIndexImage(0);
-          }
-        }}
-      />
+      {filterData[0]?.pictures.length > 1 && (
+        <p>{`${indexImage + 1}` + "/" + `${filterData[0]?.pictures.length}`}</p>
+      )}
+      {filterData[0]?.pictures.length > 1 && (
+        <img
+          src={ArrowBackward}
+          alt="Arrière"
+          className="arrow-slider-backward"
+          onClick={() => {
+            if (indexImage > 0) {
+              setIndexImage(indexImage - 1);
+            } else {
+              setIndexImage(filterData[0]?.pictures.length - 1);
+            }
+          }}
+        />
+      )}
+      {filterData[0]?.pictures.length > 1 && (
+        <img
+          src={ArrowForward}
+          alt="Avant"
+          className="arrow-slider-forward"
+          onClick={() => {
+            if (indexImage < filterData[0]?.pictures.length - 1) {
+              setIndexImage(indexImage + 1);
+            } else {
+              setIndexImage(0);
+            }
+          }}
+        />
+      )}
     </div>
   );
 }
