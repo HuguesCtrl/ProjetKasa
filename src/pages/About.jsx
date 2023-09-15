@@ -3,6 +3,8 @@ import ArrowDown from "../assets/img/ArrowDown.png";
 import Montagnes from "../assets/img/ImageAbout.png";
 import { useState, useRef, useContext } from "react";
 import { getAPIresult } from "../theme/APIcontext";
+import Accordion from "../components/Accordion";
+import Banner from "../components/Banner";
 
 function About() {
   const [openFiability, setOpenFiability] = useState(false);
@@ -67,90 +69,37 @@ function About() {
   const respectText = useRef();
   const serviceText = useRef();
   const securityText = useRef();
+
+  const FiabilityPara = `Les annonces postées sur Kasa garantissent une fiablitée totale.
+  Les photos sont conformes aux logements, et toutes les
+  informations sont régulièrement vérifiées par nos équipes.`;
+  const respectPara = `La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
+  comportement discriminatoire ou de perturbation du voisinage
+  entraînera une exclusion de notre plateforme`;
+  const servicesPara = `Bienvenue chez nous, votre havre de paix loin de chez vous. Chez
+  Kasa, nous sommes déterminés à vous offrir une expérience unique
+  et mémorable, que vous soyez en voyage d'affaires ou en vacances.`;
+  const securityPara = `La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que
+  pour les voyageurs, chaque logement correspond aux critères de
+  sécurité établis par nos services. En laissant une note aussi bien
+  à l'hôte qu'au locataire, cela permet à nos équipes de vérifier
+  que les standards sont bien respectés. Nous organisons également
+  des ateliers sur la sécurité domestique pour nos hôtes.`;
   return (
     <div className="about-container">
-      <header className="hero-image">
-        <img src={Montagnes} alt="" />
-      </header>
+      <Banner source={Montagnes} altText="Paysage Montagneux" />
       <div className="keyword-about">
         <div className="keyword-container">
-          <div className="keywords-description">
-            <p>Fiabilité</p>
-            <img
-              src={ArrowDown}
-              alt="Fleche bas"
-              ref={fiability}
-              onClick={() => handleFiabilityOpen()}
-              className="close"
-            />
-          </div>
-          <div className="keyword-text" ref={fiabilityText}>
-            <p>
-              Les annonces postées sur Kasa garantissent une fiablitée totale.
-              Les photos sont conformes aux logements, et toutes les
-              informations sont régulièrement vérifiées par nos équipes.
-            </p>
-          </div>
+          <Accordion label="Fiabilité" content={FiabilityPara} isAbout={true} />
         </div>
         <div className="keyword-container">
-          <div className="keywords-description">
-            <p>Respect</p>
-            <img
-              src={ArrowDown}
-              alt="Fleche bas"
-              ref={respect}
-              onClick={() => handleRespectOpen()}
-              className="close"
-            />
-          </div>
-          <div className="keyword-text" ref={respectText}>
-            <p>
-              La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
-              comportement discriminatoire ou de perturbation du voisinage
-              entraînera une exclusion de notre plateforme
-            </p>
-          </div>
+          <Accordion label="Respect" content={respectPara} isAbout={true} />
         </div>
         <div className="keyword-container">
-          <div className="keywords-description">
-            <p>Service</p>
-            <img
-              src={ArrowDown}
-              alt="Fleche bas"
-              ref={service}
-              onClick={() => handleServiceOpen()}
-              className="close"
-            />
-          </div>
-          <div className="keyword-text" ref={serviceText}>
-            <p>
-              Bienvenue chez nous, votre havre de paix loin de chez vous. Chez
-              Kasa, nous sommes déterminés à vous offrir une expérience unique
-              et mémorable, que vous soyez en voyage d'affaires ou en vacances.
-            </p>
-          </div>
+          <Accordion label="Service" content={servicesPara} isAbout={true} />
         </div>
         <div className="keyword-container">
-          <div className="keywords-description">
-            <p>Sécurité</p>
-            <img
-              src={ArrowDown}
-              alt="Fleche bas"
-              ref={security}
-              onClick={() => handleSecurityOpen()}
-              className="close"
-            />
-          </div>
-          <div className="keyword-text" ref={securityText}>
-            <p>
-              La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que
-              pour les voyageurs, chaque logement correspond aux critères de
-              sécurité établis par nos services. En laissant une note aussi bien
-              à l'hôte qu'au locataire, cela permet à nos équipes de vérifier
-              que les standards sont bien respectés. Nous organisons également
-              des ateliers sur la sécurité domestique pour nos hôtes.
-            </p>
-          </div>
+          <Accordion label="Sécurité" content={securityPara} isAbout={true} />
         </div>
       </div>
       <Footer />

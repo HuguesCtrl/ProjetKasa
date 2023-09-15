@@ -37,18 +37,17 @@
   height: fit-content;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  align-items: center;
   place-content: center;
-  background-color: #f6f6f6;
+  background-color: $grey;
   margin-top: 30px;
   border-radius: 25px;
   margin: 40px auto;
   gap: 50px;
   padding: 15px;
-  .appartment-sheets {
+  .appartment-vignettes {
     background-color: $main-color;
     height: 340px;
+    width: 100%;
     border-radius: 25px;
     position: relative;
     cursor: pointer;
@@ -60,7 +59,7 @@
       left: 20px;
       font-weight: 200;
       width: 70%;
-      color: #f6f6f6;
+      color: $grey;
     }
     img {
       width: 100%;
@@ -79,14 +78,13 @@
 @media #{$laptop} {
   .hero-image {
     width: 95%;
-    height: 140px;
+    height: 200px;
     margin: inherit 30px;
     justify-content: flex-start;
     padding: 25px;
     box-sizing: border-box;
     h1 {
-      font-size: 2.4rem;
-      width: 230px;
+      font-size: 3.4rem;
     }
   }
   .appartment-section {
@@ -104,6 +102,11 @@
 @media #{$mobile} {
   .hero-image {
     width: 90%;
+    height: 210px;
+    h1 {
+      font-size: 2.4rem;
+      width: 230px;
+    }
   }
   .appartment-section {
     grid-template-columns: repeat(1, 1fr);
@@ -111,7 +114,7 @@
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    .appartment-sheets {
+    .appartment-vignettes {
       width: 100% !important;
     }
   }

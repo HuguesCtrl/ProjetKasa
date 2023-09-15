@@ -72,6 +72,7 @@ body {
     max-width: 100% !important;
     padding: 25px;
     margin-top: 10px;
+    margin-bottom: 0;
     ul {
       max-width: 250px;
     }
@@ -80,7 +81,7 @@ body {
     max-width: 100% !important;
     padding: 10px;
     p {
-      font-size: 21px !important;
+      font-size: 2.1rem !important;
       width: 210px;
       text-align: center;
     }
@@ -92,18 +93,20 @@ body {
       font-size: 0.5rem !important;
     }
     a {
-      font-size: 21px;
+      font-size: 2.1rem;
     }
   }
 }
 @media #{$short-mobile} {
   .main-menu {
     ul {
-      font-size: 0.5rem !important;
+      font-size: 0.3rem !important;
       align-items: center;
+      justify-content: flex-end;
+      gap: 15px;
     }
     a {
-      font-size: 15px;
+      font-size: 1.5rem;
     }
   }
 }

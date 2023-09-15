@@ -1,0 +1,61 @@
+.accordion-label {
+  background-color: $main-color;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 54px;
+  padding: 15px;
+  img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transform: rotate(-180deg);
+    transition: 0.4s ease-out transform;
+  }
+  img.open {
+    transform: rotate(0deg);
+  }
+}
+
+.accordion-about-label {
+  @extend .accordion-label;
+  border-radius: 5px;
+  font-size: 2.1rem;
+}
+
+.accordion-text {
+  height: fit-content;
+  background-color: $grey;
+  color: $main-color;
+  max-height: 0;
+  transition: all 1s ease;
+  position: relative;
+  z-index: -5;
+  border-radius: 0 0 15px 15px;
+  overflow: hidden;
+  transform: translateY(-20px);
+  p {
+    font-size: 1.8rem;
+    padding: 10px 20px;
+    padding-top: 40px;
+    margin-top: 0;
+  }
+  .list-text {
+    padding: 20px;
+    padding-bottom: 5px;
+    font-size: 1.8rem;
+    li {
+      list-style-type: none;
+      margin-bottom: 7px;
+    }
+  }
+}
+.accordion-text.active {
+  transition: all 2s ease;
+  max-height: 470px;
+}
