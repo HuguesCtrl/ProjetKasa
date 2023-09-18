@@ -3,9 +3,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media #{$tablette} {
-    min-height: fit-content;
-  }
 }
 
 .hero-image {
