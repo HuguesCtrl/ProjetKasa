@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import ArrowDown from "../assets/img/ArrowDown.png";
 
 function Accordion({ label, content, isAbout }) {

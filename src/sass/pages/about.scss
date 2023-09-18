@@ -1,9 +1,10 @@
 .about-container {
-  @media #{$laptop} {
-    min-height: calc(100vh - 102px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  min-height: calc(100vh - 109px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media #{$tablette} {
+    min-height: fit-content;
   }
 }
 

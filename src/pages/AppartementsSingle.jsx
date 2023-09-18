@@ -1,5 +1,5 @@
-import ArrowDown from "../assets/img/ArrowDown.png";
 import Footer from "../components/Footer";
+import Spinner from "../assets/spinner.svg";
 import ArrowBackward from "../assets/img/ArrowBackward.png";
 import ArrowForward from "../assets/img/ArrowForward.png";
 import { useParams } from "react-router-dom";
@@ -34,47 +34,51 @@ function AppartementsSingle() {
 
   return (
     <div className="single-container">
-      <div className="apartment-single-container">
-        <Slider
-          filterData={filterData}
-          indexImage={indexImage}
-          ArrowBackward={ArrowBackward}
-          ArrowForward={ArrowForward}
-          setIndexImage={setIndexImage}
-        />
-        <div className="apartment-text">
-          <div className="flex-disposition">
-            <div className="apartment-description">
-              <h2>{filterData[0]?.title}</h2>
-              <p>{filterData[0]?.location}</p>
-              <div className="apartment-specification">
-                {filterData[0]?.tags.map((item, index) => (
-                  <button type="" key={index}>
-                    {item}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="apartement-name">
-              <div className="name">
-                <h3>{filterData[0]?.host.name}</h3>
-                <div className="picture">
-                  <img src={filterData[0]?.host.picture} alt="" />
+      {loading && <img src={Spinner} alt="Icône de chargement..." />}
+      {error && <h2>Une erreur est survenue, No/Bad fetch URL</h2>}
+      {data && (
+        <div className="apartment-single-container">
+          <Slider
+            filterData={filterData}
+            indexImage={indexImage}
+            ArrowBackward={ArrowBackward}
+            ArrowForward={ArrowForward}
+            setIndexImage={setIndexImage}
+          />
+          <div className="apartment-text">
+            <div className="flex-disposition">
+              <div className="apartment-description">
+                <h2>{filterData[0]?.title}</h2>
+                <p>{filterData[0]?.location}</p>
+                <div className="apartment-specification">
+                  {filterData[0]?.tags.map((item, index) => (
+                    <button type="" key={index}>
+                      {item}
+                    </button>
+                  ))}
                 </div>
               </div>
-              {/* Ici */}
-              <Ratings starRating={starRating} />
-              {/* Là */}
+              <div className="apartement-name">
+                <div className="name">
+                  <h3>{filterData[0]?.host.name}</h3>
+                  <div className="picture">
+                    <img src={filterData[0]?.host.picture} alt="" />
+                  </div>
+                </div>
+                {/* Ici */}
+                <Ratings starRating={starRating} />
+                {/* Là */}
+              </div>
             </div>
           </div>
+          <div className="keywords-collapse">
+            {/* Partie description */}
+            <Accordion label="Description" content={filterDataDescription} />
+            {/* Partie equipments */}
+            <Accordion label="Équipements" content={filterDataEquipments} />
+          </div>
         </div>
-        <div className="keywords-collapse">
-          {/* Partie description */}
-          <Accordion label="Description" content={filterDataDescription} />
-          {/* Partie equipments */}
-          <Accordion label="Équipements" content={filterDataEquipments} />
-        </div>
-      </div>
+      )}
       <Footer />
     </div>
   );

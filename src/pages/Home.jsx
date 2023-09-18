@@ -1,4 +1,5 @@
 import Rochers from "../assets/img/ImageHome.png";
+import Spinner from "../assets/spinner.svg";
 import Footer from "../components/Footer";
 import { getAPIresult } from "../theme/APIcontext";
 import { useContext } from "react";
@@ -18,11 +19,14 @@ function Home() {
         altText="Bord de mer roccailleux"
       />
       <section className="appartment-section">
-        {data?.map((item) => (
-          <NavLink to={"/single/" + item.id} key={item.id}>
-            <AppartmentVignette item={item} />
-          </NavLink>
-        ))}
+        {loading && <img src={Spinner} alt="Icône de chargement" />}
+        {error && <h2>Une erreur est survenue, No/Bad fetch URL</h2>}
+        {data &&
+          data?.map((item) => (
+            <NavLink to={"/single/" + item.id} key={item.id}>
+              <AppartmentVignette item={item} />
+            </NavLink>
+          ))}
       </section>
       <Footer />
     </div>
