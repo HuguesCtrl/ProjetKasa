@@ -1,3 +1,13 @@
+.home-container {
+  min-height: calc(100vh - 109px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media #{$tablette} {
+    min-height: fit-content;
+  }
+}
+
 .hero-image {
   height: 223px;
   max-width: 1240px;

@@ -12,7 +12,7 @@ function Home() {
   console.log(data);
   const txtHome = `Chez vous, partout et ailleurs`;
   return (
-    <div>
+    <div className="home-container">
       <Banner
         source={Rochers}
         txt={txtHome}
