@@ -35,7 +35,11 @@ function AppartementsSingle() {
   return (
     <div className="single-container">
       {loading && <img src={Spinner} alt="Icône de chargement..." />}
-      {error && <h2>Une erreur est survenue, No/Bad fetch URL</h2>}
+      {error && (
+        <h2 className="error-fetch-text">
+          Une erreur est survenue, No/Bad fetch URL
+        </h2>
+      )}
       {data && (
         <div className="apartment-single-container">
           <Slider
