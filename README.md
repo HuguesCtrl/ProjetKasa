@@ -1,3 +1,3 @@
 # Projet Kasa
 
-voir le site déployé à cette adresse: https://huguesctrl.github.io/ProjetKasa/
+voir la gestion de l'erreur API: https://huguesctrl.github.io/ProjetKasa/
